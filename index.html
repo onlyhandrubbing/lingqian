@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>政府的錢你領了沒｜2026 補助一次查</title>
+<meta name="description" content="回答 5 個問題，列出你 2026 年可能可以領的政府補助：租金補貼、生育 10 萬、育兒津貼、育嬰留停、失業給付、青年尋職津貼、節能家電、電動機車。每項附申請方式與來源。">
+<meta property="og:title" content="政府的錢你領了沒｜2026 補助一次查">
+<meta property="og:description" content="5 個問題，查出你可能漏領的補助和金額。">
+<meta property="og:image" content="https://onlyhandrubbing.github.io/lingqian/og.png">
+<meta property="og:url" content="https://onlyhandrubbing.github.io/lingqian/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://onlyhandrubbing.github.io/lingqian/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* A passbook: pale green paper, ledger rules, stamped amounts. One accent green for money, one muted red for deadlines. */
+:root{
+  --bg:#eef2ec; --page:#fbfcf8; --ink:#1b231e; --muted:#69736b; --line:#d5ddd3; --rule:#e6ece4;
+  --money:#17663f; --money-soft:#dcefe2; --due:#a8432f;
+  --serif:"Noto Serif TC","Noto Serif CJK TC","Songti TC",serif;
+  --sans:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121613; --page:#1a201c; --ink:#e7ede8; --muted:#9aa59d; --line:#2f3832; --rule:#252c27; --money:#6fd39a; --money-soft:#1f3328; --due:#f08f78; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121613; --page:#1a201c; --ink:#e7ede8; --muted:#9aa59d; --line:#2f3832; --rule:#252c27; --money:#6fd39a; --money-soft:#1f3328; --due:#f08f78; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--money);outline-offset:2px}
+.app{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 64px}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);letter-spacing:.08em}
+.top b{font-family:var(--serif);font-weight:900;font-size:18px;color:var(--ink);letter-spacing:.02em;display:inline-flex;gap:8px;align-items:center}
+.stamp{width:24px;height:24px;border:2px solid var(--money);color:var(--money);border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;transform:rotate(-8deg)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(28px,7.6vw,38px);line-height:1.25;margin:30px 0 0}
+.lead{color:var(--muted);margin:10px 0 0}
+.book{margin-top:24px;background:var(--page);border:1px solid var(--line);border-radius:14px;padding:6px 18px 18px;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 47px,var(--rule) 47px,var(--rule) 48px)}
+.q{padding:14px 0 6px}
+.q>b{display:block;font-size:14.5px;margin-bottom:8px}
+.q small{color:var(--muted);font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--page);border-radius:999px;padding:5px 13px;cursor:pointer;font-size:14.5px}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.sum{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));margin-top:22px;background:var(--ink);color:var(--page);border-radius:14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:5;box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
+.sum small{display:block;opacity:.7;font-size:12.5px}
+.sum b{font-family:var(--serif);font-size:24px;font-variant-numeric:tabular-nums}
+.sum button{border:0;background:var(--money);color:#fff;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:34px 0 0;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.sec h2{margin:0;font-family:var(--serif);font-size:21px}
+.sec small{color:var(--muted);font-size:13px}
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item .h{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.item h3{margin:0;font-size:17px;font-weight:700;line-height:1.4}
+.amt{font-family:var(--serif);font-weight:900;color:var(--money);font-size:19px;white-space:nowrap;text-align:right;line-height:1.3}
+.amt small{display:block;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--muted)}
+.why{margin:6px 0 0;font-size:14.5px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:4px;margin-right:6px;vertical-align:1px}
+.tag.soon{background:var(--rule);color:var(--muted)}
+.tag.due{background:transparent;border:1px solid var(--due);color:var(--due)}
+details{margin-top:8px;font-size:14px}
+details summary{cursor:pointer;color:var(--muted)}
+details ul{margin:6px 0 0;padding-left:18px}
+details li{margin:3px 0}
+.src{font-size:12.5px;color:var(--muted);margin-top:6px}
+.src a{color:var(--muted)}
+.buy{display:inline-block;margin-top:8px;font-size:13.5px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--money);color:var(--money)}
+.none{padding:22px 0;color:var(--muted)}
+.fine{font-size:12px;color:var(--muted);margin-top:34px;line-height:1.8}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--page);padding:10px 16px;border-radius:10px;font-weight:700;font-size:14px;z-index:40}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><b><span class="stamp">領</span>政府的錢你領了沒</b><span>2026 年版</span></div>
+  <h1>回答 5 題，<br>看你漏領了哪些補助。</h1>
+  <p class="lead">只看你符不符合條件、大概能領多少。不用留個資，資料都在你的手機上。</p>
+
+  <div class="book" id="qs"></div>
+
+  <div class="sum"><div><small>你可能可以領</small><b id="total">—</b></div><button id="share" type="button">傳給家人</button></div>
+
+  <div class="sec"><h2>你可能可以領</h2><small id="cnt"></small></div>
+  <div id="list"></div>
+  <div class="sec"><h2>快上路、先知道</h2><small>還不能申請</small></div>
+  <div id="soon"></div>
+
+  <p class="fine">資料整理自 2026 年 11 月前的政府公告與新聞，金額為上限或常見情況，實際以主管機關審核為準。本站不是政府網站，也不代辦申請。部分連結為蝦皮推薦連結，透過連結購買站長可能獲得分潤，你的價格不受影響。</p>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script>
+(()=>{
+const SITE='https://onlyhandrubbing.github.io/lingqian/';
+const buy=kw=>'https://s.shopee.tw/an_redir?origin_link='+encodeURIComponent('https://shopee.tw/search?keyword='+encodeURIComponent(kw))+'&affiliate_id=16301320039&sub_id=lingqian';
+const $=id=>document.getElementById(id);
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const Q=[
+ {k:'age',t:'你幾歲？',o:[['y','15～29'],['a','30～39'],['m','40～44'],['o','45～64'],['s','65 以上']]},
+ {k:'home',t:'你住在哪？',o:[['rent','在外租房子'],['own','自己或家裡有房'],['family','住家裡']]},
+ {k:'job',t:'工作狀況？',o:[['work','在上班（有勞保）'],['laid','被資遣、公司倒閉（非自願離職）'],['first','還沒有正式工作過'],['idle','待業半年以上'],['self','自營、接案']]},
+ {k:'fam',t:'家裡的狀況？',sub:'可複選',multi:1,o:[['single','單身'],['married26','2026 年結婚'],['baby26','2026 年生小孩或懷孕中'],['kid6','有 6 歲以下小孩'],['kid18','有 6～18 歲小孩'],['dep','要養沒工作的家人']]},
+ {k:'plan',t:'最近有打算？',sub:'可複選',multi:1,o:[['ac','換冷氣或冰箱'],['ev','換電動機車'],['leave','請育嬰假'],['none','都沒有']]}
+];
+let st=Object.assign({age:'',home:'',job:'',fam:[],plan:[]},LS.get('lq_st',{}));
+const has=(k,v)=>Array.isArray(st[k])?st[k].includes(v):st[k]===v;
+function drawQ(){$('qs').innerHTML=Q.map(q=>`<div class="q"><b>${q.t}${q.sub?` <small>${q.sub}</small>`:''}</b><div class="chips" data-k="${q.k}">${q.o.map(([v,l])=>`<button class="chip" type="button" data-v="${v}" aria-pressed="${has(q.k,v)}">${l}</button>`).join('')}</div></div>`).join('')}
+$('qs').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.parentElement.dataset.k,v=b.dataset.v,q=Q.find(x=>x.k===k);
+  if(q.multi){let a=st[k].slice();if(a.includes(v))a=a.filter(x=>x!==v);else{a.push(v);if(v==='none'||v==='single')a=a.filter(x=>x===v||(v==='single'?!['married26'].includes(x):x==='none'));else a=a.filter(x=>x!=='none'&&!(v==='married26'&&x==='single'))}st[k]=a}
+  else st[k]=st[k]===v?'':v;LS.set('lq_st',st);drawQ();calc()});
+
+/* each item: test(), amount text, est (one-time number for total, monthly×months), notes, source */
+const A=[
+ {id:'rent',n:'中央擴大租金補貼',test:()=>st.home==='rent'&&st.age!=='',
+  amt:()=>{const young=st.age==='y'||st.age==='a';const kids=has('fam','baby26');const mar=has('fam','married26');
+    return kids?'每月最高約 1.6 萬':mar?'每月最高 7,500':young&&has('fam','single')?'每月 2,400～3,600':'每月 2,000～8,000'},
+  est:()=>{const m=has('fam','baby26')?10000:has('fam','married26')?7500:st.age==='y'||st.age==='a'?3000:5000;return m*12},per:'一年約',
+  why:()=>{let w='在外租屋、家裡沒有自有房屋的人都能申請，年滿 18 歲學生也可以。';if(has('fam','married26'))w+='2026 年後結婚的新婚家庭補貼 1.5 倍。';if(has('fam','baby26'))w+='2026 年後出生的孩子，1 名子女補貼 2 倍、2 名 2.5 倍，沒有上限。';if((st.age==='y'||st.age==='a')&&has('fam','single'))w+='未滿 40 歲單身另有 1.2 倍。';return w},
+  due:'2026/12/31 截止，75 萬戶額滿就停',
+  how:['線上申請為主，也可郵寄或臨櫃','準備租約（或電子租約）、存摺封面','2026 年起新申請的房子要是合法住宅，頂樓加蓋、違建不行','不需要房東同意，也不用房東身分證字號'],
+  src:[['商周：2026 租金補貼懶人包','https://www.businessweekly.com.tw/focus/blog/3012547'],['104：新婚與育兒加碼倍數','https://blog.104.com.tw/comprehensive-guide-to-marriage-and-childbirth-benefits-for-workers/']],
+  shop:['租屋族收納、小家電','租屋 收納']},
+ {id:'birth',n:'生育給付＋政府補助，每胎合計 10 萬',test:()=>has('fam','baby26'),amt:()=>'每胎 100,000',est:()=>100000,per:'一次',
+  why:()=>'2026 年 1 月 1 日以後出生的寶寶，不管媽媽有勞保、國保、農保或沒保險，加起來都補到 10 萬；雙胞胎按胎數加倍。',
+  due:'分娩之日起 5 年內',how:['有勞保／國保：向勞保局申請生育給付，差額會自動合併發給','沒有任何保險：直接申請 10 萬生育補助','可以和縣市生育津貼一起領'],
+  src:[['商周：生育 10 萬怎麼領','https://www.businessweekly.com.tw/careers/blog/3022428'],['TVBS：中央 10 萬＋縣市津貼速查','https://news.tvbs.com.tw/life/3215929']],
+  shop:['新生兒用品清單','新生兒 必備']},
+ {id:'citybirth',n:'縣市生育津貼',test:()=>has('fam','baby26'),amt:()=>'1 萬～13 萬',est:()=>30000,per:'一次約',
+  why:()=>'各縣市另外發，第一胎從 1 萬到 5 萬都有，例如台北市第 1 胎 4 萬、第 2 胎 4.5 萬、第 3 胎以上 5 萬。和中央的 10 萬可以同時領。',
+  due:'多數是出生後 60 天～6 個月內，要設籍滿一段時間',how:['到戶政事務所辦出生登記時一起申請最方便','注意父母一方的設籍年限'],
+  src:[['TVBS：22 縣市生育津貼速查','https://news.tvbs.com.tw/life/3215929']]},
+ {id:'childcare',n:'0～6 歲育兒津貼',test:()=>has('fam','kid6')||has('fam','baby26'),amt:()=>'每月 5,000 起',est:()=>60000,per:'一年約',
+  why:()=>'家裡有 0～6 歲的孩子就能領，第二胎、第三胎以上金額更高；送公共或準公共托育的另有托育補助。',
+  due:'隨時可申請',how:['到戶籍所在地的區公所申請','孩子出生後辦出生登記時可一起申請'],
+  src:[['今周刊：成長津貼與現行育兒津貼差在哪','https://www.businesstoday.com.tw/article/category/183030/post/202605210002/']],
+  shop:['嬰幼兒用品','嬰兒 用品']},
+ {id:'parental',n:'育嬰留職停薪津貼（八成薪）',test:()=>st.job==='work'&&(has('plan','leave')||has('fam','kid6')||has('fam','baby26')),amt:()=>'投保薪資 8 成 × 最長 6 個月',est:()=>Math.round(45800*0.8*6),per:'最多約',
+  why:()=>'在職滿 6 個月的勞工，孩子 3 歲前可以請，每個孩子最長 2 年，前 6 個月有八成薪。2026 年起可以「以日」申請，最多 30 天，適合臨時照顧。',
+  due:'留停期間申請',how:['先和公司申請育嬰留停','由公司或自己向勞保局申請津貼','11/13 三讀的新法會再放寬年齡和天數，施行日期以勞動部公告為準'],
+  src:[['104：成家育兒福利整理','https://blog.104.com.tw/comprehensive-guide-to-marriage-and-childbirth-benefits-for-workers/'],['勞動部：以日申請 Q&A','https://www.mol.gov.tw/1607/28162/28166/28284/28294/84873/']]},
+ {id:'unemp',n:'失業給付',test:()=>st.job==='laid',amt:()=>{const ext=st.age==='o'||st.age==='s';return `每月最高 ${has('fam','dep')?'36,640':'27,480'}，${ext?'最長 9 個月':'最長 6 個月'}`},
+  est:()=>{const ext=st.age==='o'||st.age==='s';return (has('fam','dep')?36640:27480)*(ext?9:6)},per:'最多約',
+  why:()=>{let w='非自願離職、有工作意願的人，可以領離職前 6 個月平均投保薪資的 60%。';if(st.age==='o'||st.age==='s')w+='45 歲以上可以領到 9 個月。';if(has('fam','dep'))w+='有沒工作的配偶、父母或未成年子女要養，每人加 10%，最多加 20%。';return w},
+  due:'離職後儘快辦求職登記',how:['到就業服務站辦求職登記，或用「台灣就業通」線上申辦','提早找到工作還有「提早就業獎助津貼」，可一次拿到剩下金額的一半'],
+  src:[['Yourator：2026 失業補助懶人包','https://www.yourator.co/articles/322'],['風傳媒：扶養眷屬加給試算','https://www.storm.mg/article/11147934']]},
+ {id:'youth1',n:'支援青年就業計畫（尋職津貼＋獎勵金）',test:()=>st.job==='first'&&st.age==='y',amt:()=>'最高 48,000',est:()=>48000,per:'最多',
+  why:()=>'15～29 歲、沒在讀書也還沒正式工作過、待業滿 60 天，就可以申請。找工作期間每月 6,000 元尋職津貼，找到工作穩定後還有就業獎勵金。',
+  due:'每人限申請 1 次',how:['線上申請','要持續求職、配合就業輔導'],
+  src:[['104：2026 青年就業補助','https://blog.104.com.tw/youth-first-job-seeking-employment-subsidies/'],['Yourator：青年就業補助整理','https://www.yourator.co/articles/631']]},
+ {id:'youth2',n:'青年職得好評計畫（就業獎勵金）',test:()=>st.job==='idle'&&st.age==='y',amt:()=>'30,000',est:()=>30000,per:'一次',
+  why:()=>'15～29 歲、沒在讀書、連續失業 6 個月以上。完成就業諮詢後 90 天內找到工作、做滿 90 天，可以領 3 萬。2026 年起兼職薪水很低的期間也算失業。',
+  due:'和支援青年就業計畫只能擇一',how:['先在台灣就業通註冊並完成職涯測評','到就業中心申請'],
+  src:[['Yourator：青年職得好評計畫','https://www.yourator.co/articles/631']]},
+ {id:'ac',n:'節能家電汰舊換新＋貨物稅退稅',test:()=>has('plan','ac'),amt:()=>'每台最高 5,000',est:()=>5000,per:'每台',
+  why:()=>'買 1 級能效的冷氣或冰箱、舊機回收，經濟部每台補 3,000；再申請財政部貨物稅退稅最高 2,000。除濕機可以單獨申請退稅。',
+  due:'今年是最後一年，購買期限 12/31，經費用完會提前截止',how:['買之前先查型號是不是補助產品','留好發票、回收聯單、電費單','購買次日起 6 個月內申請退稅'],
+  src:[['商周：2026 節能家電補助','https://www.businessweekly.com.tw/focus/blog/3020900'],['今周刊：額度與截止時間','https://www.businesstoday.com.tw/article/category/183030/post/202605220019/']],
+  shop:['看一級能效冷氣價格','一級能效 變頻冷氣'],shop2:['看一級能效冰箱價格','一級能效 冰箱']},
+ {id:'ev',n:'電動機車補助',test:()=>has('plan','ev'),amt:()=>'中央最高約 12,800＋縣市加碼',est:()=>12800,per:'最多約',
+  why:()=>'經濟部產發署新購補助最高 11,000，環境部汰舊換新約 2,800，可以一起申請；各縣市另有加碼，桃園最高到 4.4 萬。',
+  due:'多數縣市 2026/12/31 前購車',how:['汰舊換新要先到環境部「車輛汰舊換新抵換媒合平台」','新購補助通常由車行代辦','縣市加碼名額有限，先查所在縣市環保局'],
+  src:[['風傳媒：2026 機車補助整理','https://www.storm.mg/article/11145507'],['TVBS：油車換電車補助','https://news.tvbs.com.tw/life/3135334']]}
+];
+const SOON=[
+ {n:'0～18 歲成長津貼',amt:'每月 5,000',test:()=>has('fam','kid6')||has('fam','kid18')||has('fam','baby26'),
+  why:'政府規劃 2027 年上路、不排富。0～6 歲每月 5,000 現金，6～18 歲一半發現金、一半存進兒童專戶到 18 歲。會和現行育兒津貼疊加。目前還不能申請，網路上的「申請教學」都不是正式辦法。',
+  src:[['數位時代：最新進度','https://www.bnext.com.tw/article/91776/childcare-subsidy-5000-lai-ching-te'],['天下：成長津貼懶人包','https://www.cw.com.tw/article/5141186']]},
+ {n:'婚假 8 天變 14 天',amt:'多 6 天有薪假',test:()=>has('fam','married26')&&st.job==='work',
+  why:'2026 年 10 月 1 日起婚假增加到 14 天，新增的 6 天薪水由雇主先發，再向勞動部申請補助。10/1 前登記結婚、婚假還沒休完的也適用。',
+  src:[['104：婚假新制','https://blog.104.com.tw/comprehensive-guide-to-marriage-and-childbirth-benefits-for-workers/']]},
+ {n:'就業保險法修正（11/13 三讀）',amt:'育嬰津貼與失業給付放寬',test:()=>st.job==='work'||st.job==='laid',
+  why:'育兒留停津貼適用年齡從 3 歲提高到 8 歲以下、雙親各可再多請 3 個月；失業給付等待期從 14 天縮短為 7 天；提早就業獎助津貼從 50% 提高到 60%。施行日期以勞動部公告為準。',
+  src:[['勞動部：就業保險法修正重點','https://www.mol.gov.tw/media/tqqpl133/%E5%B0%B1%E6%A5%AD%E4%BF%9D%E9%9A%AA%E6%B3%95%E4%BF%AE%E6%AD%A3%E9%87%8D%E9%BB%9E%E6%87%B6%E4%BA%BA%E5%8C%85.pdf?mediaDL=true']]}
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let lastTotal=0,lastNames=[];
+function calc(){const ok=A.filter(a=>{try{return a.test()}catch(e){return false}});const answered=st.age||st.home||st.job||st.fam.length||st.plan.length;
+  lastTotal=ok.reduce((s,a)=>s+(a.est?a.est():0),0);lastNames=ok.map(a=>a.n);
+  $('total').textContent=answered?(ok.length?'約 $'+lastTotal.toLocaleString():'先回答上面的問題'):'—';
+  $('cnt').textContent=ok.length?ok.length+' 項':'';
+  $('list').innerHTML=!answered?'<div class="none">先回答上面幾題，這裡會列出你可能符合的補助。</div>':ok.length?ok.map(a=>`<div class="item"><div class="h"><h3>${esc(a.n)}</h3><div class="amt">${esc(a.amt())}<small>${a.per} $${a.est().toLocaleString()}</small></div></div>
+    <p class="why">${esc(a.why())}</p><p class="why"><span class="tag due">期限</span>${esc(a.due)}</p>
+    <details><summary>怎麼申請</summary><ul>${a.how.map(h=>`<li>${esc(h)}</li>`).join('')}</ul></details>
+    ${a.shop?`<a class="buy" href="${buy(a.shop[1])}" target="_blank" rel="noopener sponsored">${esc(a.shop[0])} →</a> `:''}${a.shop2?`<a class="buy" href="${buy(a.shop2[1])}" target="_blank" rel="noopener sponsored">${esc(a.shop2[0])} →</a>`:''}
+    <div class="src">資料來源：${a.src.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join('、')}</div></div>`).join(''):'<div class="none">照你選的條件，目前沒有對應的補助。可以換個選項看看，或看下面快上路的新制。</div>';
+  const sn=SOON.filter(s=>{try{return s.test()}catch(e){return false}});
+  $('soon').innerHTML=(sn.length?sn:SOON).map(s=>`<div class="item"><div class="h"><h3><span class="tag soon">規劃中</span>${esc(s.n)}</h3><div class="amt" style="color:var(--muted);white-space:normal;max-width:9em;font-size:15px">${esc(s.amt)}</div></div><p class="why">${esc(s.why)}</p><div class="src">資料來源：${s.src.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join('、')}</div></div>`).join('')}
+let tt;function toast(s){$('toast').textContent=s;$('toast').hidden=false;clearTimeout(tt);tt=setTimeout(()=>$('toast').hidden=true,2200)}
+$('share').onclick=()=>{const t=lastNames.length?`我查了一下，可能可以領 ${lastNames.length} 項政府補助，大約 $${lastTotal.toLocaleString()}：${lastNames.join('、')}。你也查查看有沒有漏領：\n${SITE}`:`政府補助一次查，看你有沒有漏領：\n${SITE}`;
+  if(navigator.share)navigator.share({text:t}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast('已複製，貼給家人'));};
+drawQ();calc();
+})();
+</script>
+</body>
+</html>
